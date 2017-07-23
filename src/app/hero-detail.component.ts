@@ -22,6 +22,10 @@ ngOnInit():void{
   .switchMap((params:ParamMap)=>this.heroService.getHero(+params.get('id')))
   .subscribe(hero=>this.hero=hero);
 }
+save():void{
+  this.heroService.update(this.hero)
+  .then(()=>this.goBack());
+}
 goBack():void{
   this.location.back();
 }
